@@ -1,7 +1,14 @@
-package SpringApplication.src.main.java.com.kaylee.application.SpringApplication.model;
+package com.kaylee.application.SpringApplication.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "workouts")
 public class Workout {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private int duration; // in minutes
     private String date;
