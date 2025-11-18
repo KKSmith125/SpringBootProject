@@ -10,15 +10,17 @@ public class Workout {
     private Long id;
 
     private String name;
+    private String type;
     private int duration; // in minutes
     private String date;
 
     public Workout() {
     }
 
-    public Workout(Long id, String name, int duration, String date) {
+    public Workout(Long id, String name, String type, int duration, String date) {
         this.id = id;
         this.name = name;
+        this.type = type;
         this.duration = duration;
         this.date = date;
     }
@@ -38,6 +40,14 @@ public class Workout {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getDuration() {
