@@ -8,12 +8,16 @@ const login = async (email, password) => {
   try {
     const response = await axios.post('/users/login', {email, password});
 
-    store.dispatch(authenticate(response.data));
+    const {token, user} = response.data;
 
-    console.log('Successfully logged in:', response.data);
+    localStorage.setItem('token', token);
+
+    store.dispatch(authenticate(user));
+
+    console.log('Successfully logged in:', user);
   }
   catch (error) {
-    console.error('Failed login:', error.response?.data);
+    console.error('Failed login:', error.response?.data || error.message);
     store.dispatch(unauthenticate);
   }
 };
